@@ -49,16 +49,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      
-      {/* Scroll indicator */}
-      <div className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 transition-all duration-700 delay-1100 ${
-        isLoaded ? 'opacity-100' : 'opacity-0'
-      }`}>
-        <div className="flex flex-col items-center">
-          <span className="text-sm text-gray-500 mb-2">Scroll to explore</span>
-          <div className="w-0.5 h-10 bg-gradient-to-b from-gray-300 to-transparent animate-pulse-slow"></div>
-        </div>
-      </div>
     </section>
   );
 };
