@@ -10,11 +10,21 @@ const Hero = () => {
 
   return (
     <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1531686264889-56fdcabd163f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+          alt="Happy diverse people" 
+          className="w-full h-full object-cover opacity-10"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 to-amber-600/20"></div>
+      </div>
+      
       {/* Background elements */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-happiness-mental/10 rounded-full blur-3xl -z-10"></div>
       <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-happiness-purpose/10 rounded-full blur-3xl -z-10"></div>
       
-      <div className="container mx-auto px-6 md:px-8">
+      <div className="container mx-auto px-6 md:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <div className={`transition-all duration-700 delay-300 transform ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
