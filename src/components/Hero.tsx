@@ -19,8 +19,8 @@ const Hero = () => {
           <div className={`transition-all duration-700 delay-300 transform ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium text-primary bg-primary/10 rounded-full">
-              Our mission: 1 million happier people by 2033
+            <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium text-amber-600 bg-amber-100 rounded-full">
+              Our mission: 1 million happier people by 2035
             </span>
           </div>
           
@@ -28,22 +28,22 @@ const Hero = () => {
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             Creating a world of <br className="hidden md:block" />
-            <span className="text-primary">happiness</span> and fulfillment
+            <span className="text-amber-500">happiness</span> and fulfillment
           </h1>
           
           <p className={`text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 transition-all duration-700 delay-700 transform ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            We invest in people, communities, and organizations that align with our mission to make 1 million people measurably happier over the next decade.
+            We build and invest in people, communities, and organizations that align with our mission to make 1 million people measurably happier by 2035.
           </p>
           
           <div className={`flex flex-col sm:flex-row items-center justify-center gap-4 transition-all duration-700 delay-900 transform ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
-            <a href="#pillars" className="w-full sm:w-auto happiness-button border border-primary text-primary">
+            <a href="#pillars" className="w-full sm:w-auto happiness-button border border-amber-500 text-amber-500">
               <span>Discover Our Approach</span>
             </a>
-            <a href="#join" className="w-full sm:w-auto px-6 py-3 rounded-full font-medium bg-primary text-white hover:bg-primary/90 transition-colors duration-300">
+            <a href="#join" className="w-full sm:w-auto px-6 py-3 rounded-full font-medium bg-amber-500 text-white hover:bg-amber-600 transition-colors duration-300">
               Join Our Mission
             </a>
           </div>

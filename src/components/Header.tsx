@@ -33,7 +33,7 @@ const Header = () => {
         <div className="flex items-center space-x-2">
           <a 
             href="#join" 
-            className="hidden md:inline-flex relative overflow-hidden px-6 py-2.5 rounded-full font-medium text-white bg-primary transition-all duration-300 hover:bg-primary/90"
+            className="hidden md:inline-flex relative overflow-hidden px-6 py-2.5 rounded-full font-medium text-white bg-amber-500 transition-all duration-300 hover:bg-amber-600"
           >
             <span className="relative z-10">Get Involved</span>
           </a>
