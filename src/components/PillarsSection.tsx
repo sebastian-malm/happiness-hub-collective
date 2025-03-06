@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from 'react';
 import { Brain, Heart, Coins, Users, Target } from 'lucide-react';
 
@@ -12,6 +11,7 @@ interface PillarCardProps {
 
 const PillarCard = ({ title, description, color, icon, delay }: PillarCardProps) => {
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const cardRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
@@ -36,24 +36,98 @@ const PillarCard = ({ title, description, color, icon, delay }: PillarCardProps)
     };
   }, [delay]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (cardRef.current) {
+        const rect = cardRef.current.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        
+        // Calculate how far the element is in the viewport
+        // 0 = just entered, 1 = center of viewport, 2 = just exited bottom
+        const progress = 1 - (rect.top / windowHeight);
+        
+        // Limit progress between 0 and 1
+        const clampedProgress = Math.min(Math.max(progress, 0), 1);
+        setScrollProgress(clampedProgress);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Initial calculation
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  // Scale effect based on scroll progress
+  const scale = 1 + (scrollProgress * 0.05);
+  // Subtle rotation effect based on scroll progress (max 3 degrees)
+  const rotate = (scrollProgress * 3) - 1.5;
+
   return (
     <div 
       ref={cardRef}
       className={`pillar-card p-8 transition-all duration-700 transform ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
       }`}
+      style={{
+        transform: isVisible ? `translateY(0) scale(${scale}) rotate(${rotate}deg)` : 'translateY(20px) scale(1) rotate(0deg)',
+        transition: 'all 700ms cubic-bezier(0.25, 0.1, 0.25, 1.0)'
+      }}
     >
-      <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-6 pillar-icon`} style={{ backgroundColor: `${color}20` }}>
+      <div 
+        className={`w-12 h-12 rounded-full flex items-center justify-center mb-6 pillar-icon`} 
+        style={{ 
+          backgroundColor: `${color}20`,
+          transform: `translateY(${scrollProgress * -5}px)`, // Subtle float effect
+          transition: 'transform 300ms ease-out'
+        }}
+      >
         <div className="text-gray-700">{icon}</div>
       </div>
       <h3 className="text-xl font-semibold mb-3">{title}</h3>
       <p className="text-gray-600">{description}</p>
-      <div className="absolute bottom-0 left-0 h-1 w-full" style={{ backgroundColor: color, opacity: 0.7 }}></div>
+      <div 
+        className="absolute bottom-0 left-0 h-1" 
+        style={{ 
+          backgroundColor: color, 
+          opacity: 0.7,
+          width: `${Math.min(scrollProgress * 150, 100)}%`, // Width expands as you scroll
+          transition: 'width 300ms ease-out'
+        }}
+      ></div>
     </div>
   );
 };
 
 const PillarsSection = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [sectionInView, setSectionInView] = useState(false);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setSectionInView(true);
+        } else {
+          setSectionInView(false);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const pillars = [
     {
       title: "Mental Health",
@@ -88,9 +162,13 @@ const PillarsSection = () => {
   ];
 
   return (
-    <section id="pillars" className="py-20 md:py-32">
+    <section id="pillars" className="py-20 md:py-32" ref={sectionRef}>
       <div className="container mx-auto px-6 md:px-8">
-        <div className="max-w-4xl mx-auto text-center mb-16 md:mb-24">
+        <div 
+          className={`max-w-4xl mx-auto text-center mb-16 md:mb-24 transition-all duration-1000 transform ${
+            sectionInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}
+        >
           <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-gray-100 rounded-full">
             The 5 Pillars of Happiness
           </span>
