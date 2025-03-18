@@ -1,4 +1,3 @@
-
 import { useRef, useState, useEffect } from 'react';
 import HubspotForm from './HubspotForm';
 
@@ -30,7 +29,6 @@ const JoinSection = () => {
 
   return (
     <section id="join" className="py-20 md:py-32 relative overflow-hidden">
-      {/* Background elements */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-100 rounded-full blur-3xl -z-10"></div>
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-50 rounded-full blur-3xl -z-10"></div>
       
@@ -105,6 +103,8 @@ const JoinSection = () => {
             <h3 className="text-2xl font-semibold mb-6">Stay Connected</h3>
             <div className="flex flex-col items-center justify-center">
               <HubspotForm 
+                portalId="49565736"
+                formId="2d1a3833-3083-44ae-86e4-dee921ac03bd"
                 isButton={true}
                 buttonText="Join the newsletter"
                 formUrl="https://share.hsforms.com/1IFvGm8AbRume7KaSe3gDlwtid60"
