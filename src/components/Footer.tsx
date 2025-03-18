@@ -1,5 +1,21 @@
 
+import { useState } from 'react';
+import { useToast } from "@/hooks/use-toast";
+
 const Footer = () => {
+  const { toast } = useToast();
+  const [email, setEmail] = useState('');
+
+  const handleEmailSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // This would normally call an API to subscribe the email
+    toast({
+      title: "Thanks for subscribing!",
+      description: "You'll receive updates at " + email,
+    });
+    setEmail('');
+  };
+
   return (
     <footer className="bg-amber-50 pt-20 pb-10">
       <div className="container mx-auto px-6 md:px-8">
@@ -53,7 +69,6 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-lg mb-6">Contact</h3>
             <ul className="space-y-4">
-        
               <li className="flex items-start gap-3">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-amber-400 mt-1">
                   <rect width="20" height="16" x="2" y="4" rx="2"></rect>
@@ -61,7 +76,12 @@ const Footer = () => {
                 </svg>
                 <span className="text-gray-600">support@thehappinessorg.com</span>
               </li>
-             
+              <li className="flex items-start gap-3 mt-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-amber-400 mt-1">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                <span className="text-gray-600">(555) 123-4567</span>
+              </li>
             </ul>
           </div>
         </div>

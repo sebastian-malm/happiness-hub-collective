@@ -1,5 +1,6 @@
 
 import { useRef, useState, useEffect } from 'react';
+import HubspotForm from './HubspotForm';
 
 const JoinSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -105,20 +106,13 @@ const JoinSection = () => {
             <p className="text-gray-600 mb-8">
               Join our newsletter to stay updated on our progress, events, and opportunities to get involved.
             </p>
-            <form className="flex flex-col sm:flex-row gap-4">
-              <input 
-                type="email" 
-                placeholder="Enter your email" 
-                className="flex-1 px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
-                required
+            <div className="hubspot-form-container">
+              <HubspotForm 
+                portalId="49565736"
+                formId="2d1a3833-3083-44ae-86e4-dee921ac03bd"
+                className="mx-auto"
               />
-              <button 
-                type="submit" 
-                className="px-6 py-3 rounded-lg font-medium bg-amber-500 text-white hover:bg-amber-600 transition-colors duration-300"
-              >
-                Subscribe
-              </button>
-            </form>
+            </div>
           </div>
         </div>
       </div>
