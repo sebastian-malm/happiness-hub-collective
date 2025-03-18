@@ -103,11 +103,14 @@ const JoinSection = () => {
           
           <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-md border border-gray-100 p-8 md:p-12">
             <h3 className="text-2xl font-semibold mb-6">Stay Connected</h3>
-            <HubspotForm 
-              portalId="49565736"
-              formId="2d1a3833-3083-44ae-86e4-dee921ac03bd"
-              className="mx-auto"
-            />
+            <div className="flex flex-col items-center justify-center">
+              <HubspotForm 
+                isButton={true}
+                buttonText="Join the newsletter"
+                formUrl="https://share.hsforms.com/1IFvGm8AbRume7KaSe3gDlwtid60"
+                className="mx-auto"
+              />
+            </div>
           </div>
         </div>
       </div>

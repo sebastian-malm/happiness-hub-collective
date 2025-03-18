@@ -5,6 +5,7 @@ interface HBSPTForms {
     formId: string;
     region?: string;
     target?: HTMLElement | null;
+    onFormReady?: () => void;
   }) => void;
 }
 

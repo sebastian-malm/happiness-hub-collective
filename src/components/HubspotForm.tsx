@@ -1,20 +1,39 @@
 
 import { useEffect, useRef } from 'react';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
 interface HubspotFormProps {
   portalId: string;
   formId: string;
   region?: string;
   className?: string;
+  isButton?: boolean;
+  buttonText?: string;
+  formUrl?: string;
 }
 
-const HubspotForm = ({ portalId, formId, region = 'na1', className = '' }: HubspotFormProps) => {
+const HubspotForm = ({ 
+  portalId, 
+  formId, 
+  region = 'na1', 
+  className = '',
+  isButton = false,
+  buttonText = 'Join the newsletter',
+  formUrl
+}: HubspotFormProps) => {
   const formContainerRef = useRef<HTMLDivElement>(null);
   const formLoadedRef = useRef<boolean>(false);
 
+  const openFormInNewWindow = () => {
+    if (formUrl) {
+      window.open(formUrl, '_blank');
+    }
+  };
+
   useEffect(() => {
-    // Only attempt to create the form if it hasn't been loaded yet
-    if (!formLoadedRef.current && formContainerRef.current) {
+    // Only create embedded form if not in button mode
+    if (!isButton && !formLoadedRef.current && formContainerRef.current) {
       // Clear any existing content in the container
       formContainerRef.current.innerHTML = '';
       
@@ -47,7 +66,18 @@ const HubspotForm = ({ portalId, formId, region = 'na1', className = '' }: Hubsp
       }
       formLoadedRef.current = false;
     };
-  }, [portalId, formId, region]);
+  }, [portalId, formId, region, isButton]);
+
+  if (isButton) {
+    return (
+      <Button 
+        onClick={openFormInNewWindow} 
+        className={`bg-amber-500 hover:bg-amber-600 text-white ${className}`}
+      >
+        {buttonText} <ArrowRight className="ml-1" size={16} />
+      </Button>
+    );
+  }
 
   return <div ref={formContainerRef} className={className}></div>;
 };
