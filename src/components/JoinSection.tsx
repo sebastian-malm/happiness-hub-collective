@@ -1,3 +1,4 @@
+
 import { useRef, useState, useEffect } from 'react';
 import HubspotForm from './HubspotForm';
 
@@ -81,7 +82,7 @@ const JoinSection = () => {
               </div>
               <h3 className="text-xl font-semibold mb-3">Partner</h3>
               <p className="text-gray-600 mb-6">Collaborate with us on projects or initiatives that align with our mission and values.</p>
-              <a href="#" className="text-amber-500 font-medium hover:underline">Get in touch →</a>
+              <a href="https://share.hsforms.com/1YvKOfJrNRG-ZGmnEVLKtZwtid60" target="_blank" rel="noopener noreferrer" className="text-amber-500 font-medium hover:underline">Get in touch →</a>
             </div>
             
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 transition-all duration-300 hover:shadow-md">
