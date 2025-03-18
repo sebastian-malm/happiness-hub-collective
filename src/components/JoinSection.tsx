@@ -103,16 +103,11 @@ const JoinSection = () => {
           
           <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-md border border-gray-100 p-8 md:p-12">
             <h3 className="text-2xl font-semibold mb-6">Stay Connected</h3>
-            <p className="text-gray-600 mb-8">
-              Join our newsletter to stay updated on our progress, events, and opportunities to get involved.
-            </p>
-            <div className="hubspot-form-container">
-              <HubspotForm 
-                portalId="49565736"
-                formId="2d1a3833-3083-44ae-86e4-dee921ac03bd"
-                className="mx-auto"
-              />
-            </div>
+            <HubspotForm 
+              portalId="49565736"
+              formId="2d1a3833-3083-44ae-86e4-dee921ac03bd"
+              className="mx-auto"
+            />
           </div>
         </div>
       </div>
