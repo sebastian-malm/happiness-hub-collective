@@ -59,7 +59,7 @@ const JoinSection = () => {
               </div>
               <h3 className="text-xl font-semibold mb-3">Volunteer</h3>
               <p className="text-gray-600 mb-6">Contribute your time, skills, and passion to our initiatives and community projects.</p>
-              <a href="#" className="text-amber-500 font-medium hover:underline">Learn more →</a>
+              <a href="https://share.hsforms.com/1YvKOfJrNRG-ZGmnEVLKtZwtid60" target="_blank" rel="noopener noreferrer" className="text-amber-500 font-medium hover:underline">Learn more →</a>
             </div>
             
             <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 transition-all duration-300 hover:shadow-md">
@@ -96,7 +96,7 @@ const JoinSection = () => {
               </div>
               <h3 className="text-xl font-semibold mb-3">Join the community</h3>
               <p className="text-gray-600 mb-6">Connect with like-minded individuals and organizations dedicated to spreading happiness.</p>
-              <a href="#" className="text-amber-500 font-medium hover:underline">Join now →</a>
+              <a href="https://share.hsforms.com/1IFvGm8AbRume7KaSe3gDlwtid60" target="_blank" rel="noopener noreferrer" className="text-amber-500 font-medium hover:underline">Join now →</a>
             </div>
           </div>
           
