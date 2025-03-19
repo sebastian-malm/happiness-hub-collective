@@ -51,7 +51,7 @@ const MissionSection = () => {
               Our Vision
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold tracking-tight mb-6">
-              A world where happiness is accessible to all
+              To give 1 million people the tools, support, and systems to live happier, more fulfilling lives.
             </h2>
             <p className="text-lg text-gray-700 mb-8 bg-white/60 p-4 rounded-lg backdrop-blur-sm">
               We believe that happiness is not a luxury but a fundamental human need. Through strategic investments, research, and community initiatives, we're working to create lasting positive impact on individual lives and society as a whole.
