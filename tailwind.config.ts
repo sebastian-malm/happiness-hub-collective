@@ -64,11 +64,11 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				happiness: {
-					mental: '#9EB8D9',
-					physical: '#88D18A',
-					financial: '#F7DD72',
-					community: '#F4B393',
-					purpose: '#C38D9E'
+					mental: 'hsl(280 100% 70%)',
+					physical: 'hsl(300 80% 75%)',
+					financial: 'hsl(320 90% 75%)',
+					community: 'hsl(340 85% 70%)',
+					purpose: 'hsl(260 75% 70%)'
 				}
 			},
 			borderRadius: {

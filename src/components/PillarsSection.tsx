@@ -43,12 +43,12 @@ const PillarCard = ({ title, description, color, icon, delay }: PillarCardProps)
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
       }`}
     >
-      <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-6 pillar-icon`} style={{ backgroundColor: `${color}20` }}>
-        <div className="text-gray-700">{icon}</div>
+      <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 pillar-icon glass-card">
+        <div className="text-primary">{icon}</div>
       </div>
-      <h3 className="text-xl font-semibold mb-3">{title}</h3>
-      <p className="text-gray-600">{description}</p>
-      <div className="absolute bottom-0 left-0 h-1 w-full" style={{ backgroundColor: color, opacity: 0.7 }}></div>
+      <h3 className="text-2xl font-bold mb-4 text-foreground">{title}</h3>
+      <p className="text-muted-foreground leading-relaxed">{description}</p>
+      <div className="absolute bottom-0 left-0 h-1 w-full rounded-full" style={{ background: 'var(--gradient-primary)' }}></div>
     </div>
   );
 };
@@ -88,21 +88,22 @@ const PillarsSection = () => {
   ];
 
   return (
-    <section id="pillars" className="py-20 md:py-32">
-      <div className="container mx-auto px-6 md:px-8">
-        <div className="max-w-4xl mx-auto text-center mb-16 md:mb-24">
-          <span className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-gray-100 rounded-full">
+    <section id="pillars" className="py-20 md:py-32 section-bg relative">
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-accent/5"></div>
+      <div className="container mx-auto px-6 md:px-8 relative">
+        <div className="max-w-4xl mx-auto text-center mb-20 md:mb-32">
+          <span className="inline-block px-6 py-2 mb-8 text-sm font-semibold glass-card rounded-full">
             The 5 Pillars of Happiness
           </span>
-          <h2 className="text-3xl md:text-5xl font-display font-bold tracking-tight mb-6">
-            A holistic approach to well-being
+          <h2 className="text-4xl md:text-6xl font-display font-black tracking-tight mb-8">
+            A holistic approach to <span className="gradient-text">well-being</span>
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             We've identified five interconnected pillars that form the foundation of sustained happiness and life satisfaction.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
           {pillars.map((pillar, index) => (
             <PillarCard
               key={pillar.title}
