@@ -35,7 +35,7 @@ const Hero = () => {
             <span className="gradient-text">happiness</span> and fulfillment
           </h1>
           
-          <p className={`text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 transition-all duration-700 delay-700 transform ${
+          <p className={`text-lg md:text-xl text-accent/90 max-w-2xl mx-auto mb-10 transition-all duration-700 delay-700 transform ${
             isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
             We build and invest in people, communities, and organizations that align with our mission to make 1 million people measurably happier by 2035.

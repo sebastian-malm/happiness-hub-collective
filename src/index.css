@@ -119,10 +119,28 @@
   }
   
   .gradient-text {
-    background: var(--gradient-primary);
+    background: linear-gradient(135deg, hsl(280 100% 70%), hsl(240 100% 80%), hsl(280 80% 60%));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    position: relative;
+  }
+  
+  .gradient-text::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+      hsla(280, 100%, 70%, 0.3) 0%, 
+      hsla(240, 100%, 80%, 0.2) 50%, 
+      hsla(280, 80%, 60%, 0.1) 100%
+    );
+    border-radius: 0.5rem;
+    filter: blur(20px);
+    z-index: -1;
   }
   
   .glass-card {
