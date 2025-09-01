@@ -104,16 +104,31 @@ const PillarsSection = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
-          {pillars.map((pillar, index) => (
-            <PillarCard
-              key={pillar.title}
-              title={pillar.title}
-              description={pillar.description}
-              color={pillar.color}
-              icon={pillar.icon}
-              delay={index * 150}
-            />
-          ))}
+          {pillars.map((pillar, index) => {
+            const pillarRoutes = {
+              "Mental Health": "/mental-health",
+              "Physical Health": "/physical-health",
+              "Financial Stability": "/financial-stability",
+              "Belonging & Community": "/belonging-community",
+              "Purpose & Fulfillment": "/purpose-fulfillment"
+            };
+            
+            return (
+              <a 
+                key={pillar.title}
+                href={pillarRoutes[pillar.title as keyof typeof pillarRoutes]}
+                className="block transition-transform duration-300 hover:scale-105"
+              >
+                <PillarCard
+                  title={pillar.title}
+                  description={pillar.description}
+                  color={pillar.color}
+                  icon={pillar.icon}
+                  delay={index * 150}
+                />
+              </a>
+            );
+          })}
         </div>
       </div>
     </section>
